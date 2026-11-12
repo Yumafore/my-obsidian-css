@@ -1,0 +1,29 @@
+/* ========== 阅读模式 (Reading View) ========== */
+
+/* 删除线文本本身变灰 */
+.markdown-preview-view del,
+.markdown-preview-view s,
+.markdown-preview-view .strikethrough {
+    color: rgba(200, 200, 200, 0.5) !important;
+    text-decoration-color: rgba(200, 200, 200, 0.3) !important;
+}
+
+/* 删除线内的所有子元素强制变灰 */
+.markdown-preview-view del *,
+.markdown-preview-view s *,
+.markdown-preview-view .strikethrough * {
+    color: rgba(200, 200, 200, 0.5) !important;
+}
+
+/* ========== 实时预览/编辑模式 (Live Preview) ========== */
+
+/* 删除线文本变灰 */
+.markdown-source-view.mod-cm6 .cm-strikethrough {
+    color: rgba(200, 200, 200, 0.5) !important;
+    text-decoration-color: rgba(200, 200, 200, 0.3) !important;
+}
+
+/* 删除线内的所有子元素强制变灰 */
+.markdown-source-view.mod-cm6 .cm-strikethrough * {
+    color: rgba(200, 200, 200, 0.5) !important;
+}

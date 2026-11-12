@@ -1,0 +1,117 @@
+
+
+/* ========== 阅读模式 (Reading View) ========== */
+
+/* 已完成待办整行变灰（包括所有子元素） */
+.markdown-preview-view ul > li.task-list-item.is-checked,
+.markdown-preview-view ol > li.task-list-item.is-checked {
+    color: rgba(200, 200, 200, 0.5) !important;
+}
+
+/* 已完成的选择框变灰 + 内部勾选标记也变灰 */
+.markdown-preview-view .task-list-item.is-checked input[type="checkbox"] {
+    background-color: rgba(200, 200, 200, 0.5) !important;
+    border-color: rgba(200, 200, 200, 0.5) !important;
+    /* 勾选标记颜色 */
+    --checkbox-marker-color: rgba(150, 150, 150, 0.5);
+}
+
+/* 强制所有子元素继承灰色（关键！） */
+.markdown-preview-view .task-list-item.is-checked * {
+    color: rgba(200, 200, 200, 0.5) !important;
+    --text-normal: rgba(200, 200, 200, 0.5) !important;
+}
+
+/* ========== 实时预览/编辑模式 (Live Preview) ========== */
+
+/* 已完成待办整行变灰 */
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="x"],
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="X"] {
+    color: rgba(200, 200, 200, 0.5) !important;
+}
+
+/* 已完成的选择框变灰 */
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="x"] input[type="checkbox"],
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="X"] input[type="checkbox"] {
+    background-color: rgba(200, 200, 200, 0.5) !important;
+    border-color: rgba(200, 200, 200, 0.5) !important;
+}
+
+/* 强制编辑模式所有子元素变灰 */
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="x"] *,
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="X"] * {
+    color: rgba(200, 200, 200, 0.5) !important;
+}
+
+
+
+
+
+
+
+
+
+
+/*
+/* ========== 阅读模式 (Reading View) ========== */
+
+/* 已完成待办整行变灰 */
+.markdown-preview-view ul > li.task-list-item.is-checked,
+.markdown-preview-view ol > li.task-list-item.is-checked {
+    color: rgba(200, 200, 200, 0.5) !important;
+}
+
+/* 已完成的选择框变灰 */
+.markdown-preview-view .task-list-item.is-checked input[type=checkbox] {
+    background-color: rgba(200, 200, 200, 0.5) !important;
+    border-color: rgba(200, 200, 200, 0.5) !important;
+    /* 移除之前的红色 */
+    /* background-color: red; */
+}
+
+/* ========== 实时预览/编辑模式 (Live Preview) ========== */
+
+/* 已完成待办整行变灰 */
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="x"],
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="X"] {
+    color: rgba(200, 200, 200, 0.5) !important;
+}
+
+/* 已完成的选择框变灰 */
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="x"] input[type=checkbox"],
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="X"] input[type=checkbox"] {
+    background-color: rgba(200, 200, 200, 0.5) !important;
+    border-color: rgba(200, 200, 200, 0.5) !important;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cm-strikethrough { color: rgba(200, 200, 200, 0.5); }
+/* ========== 复选框样式（可选） ========== */
+/*input[type=checkbox] { 
+    background-color: red;
+}*/
+
+
+
+/*
+如果需要同时作用于所有已完成状态（包括自定义状态如 - [-] - [>] 等），可以扩展选择器 ：
+css
+复制
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task],
+.markdown-preview-view .task-list-item.is-checked {
+    color: rgba(200, 200, 200, 0.5) !important;
+}
+*/

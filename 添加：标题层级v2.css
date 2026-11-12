@@ -1,0 +1,45 @@
+/**
+ * 标题层级显示
+ * @author: 稻米鼠
+ * @description: 在编辑模式下显示标题层级，方便一眼识别
+ * @created: 2024-10-31 16:04:46
+ * @updated: 2024-10-31 16:04:46
+ * @version: 0.0.1
+ */
+.HyperMD-header .cm-header-1::before,
+.HyperMD-header .cm-header-2::before,
+.HyperMD-header .cm-header-3::before,
+.HyperMD-header .cm-header-4::before,
+.HyperMD-header .cm-header-5::before,
+.HyperMD-header .cm-header-6::before {
+  display: inline-block;
+  border: 1px solid var(--text-normal);
+  padding: 0 .2rem;
+  margin-right: .5rem;
+  border-radius: .2rem;
+  color: var(--text-normal);
+  opacity: .3;
+}
+.HyperMD-header .cm-header-1::before {
+  content: "H1";
+}
+.HyperMD-header .cm-header-2::before {
+  content: "H2";
+}
+.HyperMD-header .cm-header-3::before {
+  content: "H3";
+}
+.HyperMD-header .cm-header-4::before {
+  content: "H4";
+}
+.HyperMD-header .cm-header-5::before {
+  content: "H5";
+}
+.HyperMD-header .cm-header-6::before {
+  content: "H6";
+}
+.HyperMD-header .cm-header + .cm-header::before {
+  display: none;
+}
+
+

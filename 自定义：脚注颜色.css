@@ -1,0 +1,30 @@
+/* ================================
+   Obsidian 脚注颜色自定义（仅限屏幕显示，不影响打印）
+   ================================ */
+
+@media screen {
+  /* 1. 渲染后的正文上标数字（例如 [1]）以及底部的返回箭头 ↩ */
+  .markdown-rendered .footnote-link,
+  .markdown-rendered .footnote-backref {
+    color: #4CAF50 !important; /* 护眼绿色 */
+    text-decoration: none !important; /* 去掉下划线，看起来更清爽 */
+  }
+
+  /* 2. 鼠标悬停在数字上时的颜色（稍微加深） */
+  .markdown-rendered .footnote-link:hover,
+  .markdown-rendered .footnote-backref:hover {
+    color: #388E3C !important;
+  }
+
+  /* 3. 实时预览/编辑模式下，原代码 ^[脚注内容] 的颜色 */
+  .cm-s-obsidian span.cm-hmd-footnote,
+  .cm-s-obsidian span.cm-footref {
+    color: #4CAF50 !important;
+  }
+}
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+/* 仅手机端 - 属性一行布局 + 彻底去灰线 */
+.is-phone .metadata-property {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;      /* 垂直居中 */
+    gap: 0px !important;
+    padding: 0px 0 !important;
+    flex-wrap: nowrap !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+ 
+}
+.is-phone .metadata-property::before,
+.is-phone .metadata-property::after {
+    display: none !important;
+    content: none !important;
+}
+.is-phone .metadata-properties {
+    border: none !important;
+    box-shadow: none !important;
+}
+.is-phone .metadata-property + .metadata-property {
+    border-top: none !important;
+    margin-top: 0 !important;
+}
+
+/* 键名固定宽度 */
+.is-phone .metadata-property .metadata-property-key {
+    flex: 0 0 90px !important;
+    min-width: 90px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    color: var(--text-muted) !important;
+    font-size: var(--font-ui-small) !important;
+    font-weight: var(--font-medium) !important;
+}
+
+/* 只把右边的数值往左拖，标签原地不动 */
+.is-phone .metadata-property .metadata-property-value {
+    margin-left: -2px !important;   /* 把“2026-08-12”往左拽 20 个像素 */
+    padding-left: 0 !important;      /* 把值自己肚子里左边的那坨空隙清掉 */
+}
+

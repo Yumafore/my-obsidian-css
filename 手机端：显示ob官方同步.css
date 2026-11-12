@@ -1,0 +1,14 @@
+/* 已完全同步 —— 底部绿色实线 */
+.is-mobile .app-container:has(.plugin-sync[aria-label="Fully synced"]) {
+    border-bottom: 4px solid var(--color-green);
+}
+
+/* 同步中 —— 底部黄色虚线 */
+.is-mobile .app-container:has(.mod-working) {
+    border-bottom: 4px dotted var(--color-yellow);
+}
+
+/* 已暂停 —— 底部红色虚线 */
+.is-mobile .app-container:has(.plugin-sync[aria-label="Paused"]) {
+    border-bottom: 4px dashed var(--color-red);
+}

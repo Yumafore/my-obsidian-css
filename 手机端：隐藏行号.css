@@ -1,0 +1,11 @@
+/* 手机端强制隐藏行号列（适配所有版本） */
+body.is-mobile .cm-gutters,
+body.is-mobile .cm-line-gutter,
+body.is-mobile .cm-line-numbers {
+    display: none !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    border-right: 0 !important; /* 移除右侧分割线 */
+}

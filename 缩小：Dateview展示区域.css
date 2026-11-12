@@ -1,0 +1,11 @@
+.block-language-dataview  {
+  display: block;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.block-language-dataviewjs   {
+  display: block;
+  max-height: 400px;
+  overflow: auto;
+}

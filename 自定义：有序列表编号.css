@@ -1,0 +1,112 @@
+/* === Obsidian 有序列表层级自定义样式 === */
+/* 阅读视图 + 编辑视图（Live Preview & Source）通用 */
+
+
+/* 自定义计数器样式 */
+@counter-style circled-number {
+  system: fixed;
+  symbols: ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩;
+  suffix: " ";
+  fallback: decimal;
+}
+
+@counter-style circled-digit {
+  system: fixed;
+  symbols: ❶ ❷ ❸ ❹ ❺ ❻ ❼ ❽ ❾ ❿;
+  suffix: " ";
+  fallback: decimal;
+}
+
+/* ========== 阅读视图 ========== */
+
+.markdown-reading-view ol {
+  counter-reset: ol-counter-1;
+  list-style: none;
+}
+
+.markdown-reading-view ol ol { counter-reset: ol-counter-2; }
+.markdown-reading-view ol ol ol { counter-reset: ol-counter-3; }
+.markdown-reading-view ol ol ol ol { counter-reset: ol-counter-4; }
+.markdown-reading-view ol ol ol ol ol { counter-reset: ol-counter-5; }
+.markdown-reading-view ol ol ol ol ol ol { counter-reset: ol-counter-6; }
+
+.markdown-reading-view ol > li { counter-increment: ol-counter-1; }
+.markdown-reading-view ol ol > li { counter-increment: ol-counter-2; }
+.markdown-reading-view ol ol ol > li { counter-increment: ol-counter-3; }
+.markdown-reading-view ol ol ol ol > li { counter-increment: ol-counter-4; }
+.markdown-reading-view ol ol ol ol ol > li { counter-increment: ol-counter-5; }
+.markdown-reading-view ol ol ol ol ol ol > li { counter-increment: ol-counter-6; }
+
+.markdown-reading-view ol > li::marker { content: counter(ol-counter-1) ". "; }
+.markdown-reading-view ol ol > li::marker { content: "(" counter(ol-counter-2) ") "; }
+.markdown-reading-view ol ol ol > li::marker { content: counter(ol-counter-3, circled-number) " "; }
+.markdown-reading-view ol ol ol ol > li::marker { content: counter(ol-counter-4, lower-roman) ". "; }
+.markdown-reading-view ol ol ol ol ol > li::marker { content: counter(ol-counter-5, circled-digit) " "; }
+.markdown-reading-view ol ol ol ol ol ol > li::marker { content: counter(ol-counter-6, lower-alpha) ". "; }
+
+/* Dataview 区域重置为默认 */
+.markdown-reading-view :is([class*="dataview"], [class*="dataviewjs"], .block-language-dataview, .block-language-dataviewjs) ol {
+  list-style: decimal !important;
+  counter-reset: none !important;
+}
+
+.markdown-reading-view :is([class*="dataview"], [class*="dataviewjs"], .block-language-dataview, .block-language-dataviewjs) ol > li {
+  counter-increment: none !important;
+}
+
+.markdown-reading-view :is([class*="dataview"], [class*="dataviewjs"], .block-language-dataview, .block-language-dataviewjs) ol > li::marker {
+  content: unset !important;
+}
+
+/* ========== 编辑视图 ========== */
+
+/* 计数器重置 */
+.markdown-source-view.mod-cm6 .HyperMD-list-line-1:first-child,
+.markdown-source-view.mod-cm6 .cm-line:not(.HyperMD-list-line) + .HyperMD-list-line-1 { counter-reset: edit-ol-1; }
+
+.markdown-source-view.mod-cm6 .HyperMD-list-line-1 + .HyperMD-list-line-2,
+.markdown-source-view.mod-cm6 .HyperMD-list-line-2:first-child { counter-reset: edit-ol-2; }
+
+.markdown-source-view.mod-cm6 .HyperMD-list-line-2 + .HyperMD-list-line-3,
+.markdown-source-view.mod-cm6 .HyperMD-list-line-3:first-child { counter-reset: edit-ol-3; }
+
+.markdown-source-view.mod-cm6 .HyperMD-list-line-3 + .HyperMD-list-line-4,
+.markdown-source-view.mod-cm6 .HyperMD-list-line-4:first-child { counter-reset: edit-ol-4; }
+
+.markdown-source-view.mod-cm6 .HyperMD-list-line-4 + .HyperMD-list-line-5,
+.markdown-source-view.mod-cm6 .HyperMD-list-line-5:first-child { counter-reset: edit-ol-5; }
+
+.markdown-source-view.mod-cm6 .HyperMD-list-line-5 + .HyperMD-list-line-6,
+.markdown-source-view.mod-cm6 .HyperMD-list-line-6:first-child { counter-reset: edit-ol-6; }
+
+/* 计数器递增 */
+.markdown-source-view.mod-cm6 .HyperMD-list-line-1 { counter-increment: edit-ol-1; }
+.markdown-source-view.mod-cm6 .HyperMD-list-line-2 { counter-increment: edit-ol-2; }
+.markdown-source-view.mod-cm6 .HyperMD-list-line-3 { counter-increment: edit-ol-3; }
+.markdown-source-view.mod-cm6 .HyperMD-list-line-4 { counter-increment: edit-ol-4; }
+.markdown-source-view.mod-cm6 .HyperMD-list-line-5 { counter-increment: edit-ol-5; }
+.markdown-source-view.mod-cm6 .HyperMD-list-line-6 { counter-increment: edit-ol-6; }
+
+/* 隐藏原始列表标记 */
+.markdown-source-view.mod-cm6 .HyperMD-list-line > .cm-formatting-list-ol {
+  color: transparent;
+  position: relative;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* 自定义编号样式 */
+.markdown-source-view.mod-cm6 .HyperMD-list-line-1 > .cm-formatting-list-ol::before { content: counter(edit-ol-1) ". "; left: 0.6em; }
+.markdown-source-view.mod-cm6 .HyperMD-list-line-2 > .cm-formatting-list-ol::before { content: "(" counter(edit-ol-2) ") "; left: 0.3em; }
+.markdown-source-view.mod-cm6 .HyperMD-list-line-3 > .cm-formatting-list-ol::before { content: counter(edit-ol-3, circled-number) " "; left: 0.5em; }
+.markdown-source-view.mod-cm6 .HyperMD-list-line-4 > .cm-formatting-list-ol::before { content: counter(edit-ol-4, lower-roman) ". "; left: 0.5em; }
+.markdown-source-view.mod-cm6 .HyperMD-list-line-5 > .cm-formatting-list-ol::before { content: counter(edit-ol-5, circled-digit) " "; left: 0.5em; }
+.markdown-source-view.mod-cm6 .HyperMD-list-line-6 > .cm-formatting-list-ol::before { content: counter(edit-ol-6, lower-alpha) ". "; left: 0.5em; }
+
+.markdown-source-view.mod-cm6 .HyperMD-list-line > .cm-formatting-list-ol::before {
+  color: var(--text-muted);
+  position: absolute;
+  font-weight: normal;
+  font-size: inherit;
+  line-height: inherit;
+}

@@ -1,0 +1,24 @@
+
+/* 非活动行：隐藏脚注内容，仅保留一个锚点图标 */
+div:not(.cm-active) > .cm-inline-footnote {
+  font-size: 0;           /* 内容缩为零，但占位仍在 */
+}
+div:not(.cm-active) > .cm-inline-footnote-end::after {
+  content: '⚓';          /* 用锚点替代被隐藏的内容 */
+  font-size: .7rem;
+  opacity: 0.7;
+}
+
+/* 活动行：正常显示脚注内容 */
+.cm-inline-footnote {
+  opacity: 0.8;
+  font-size: 80%;
+  position: relative;
+  top: -4px;              /* 上标样式 */
+}
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+/* 仅在手机端隐藏文档属性栏的【展开/折叠】按钮 */
+body.is-mobile .metadata-container > .metadata-button {
+    display: none !important;
+}
+
+/* 顺手把按钮留下的空白高度压缩掉，避免空出一大截 */
+body.is-mobile .metadata-container {
+    min-height: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden; /* 防止内容溢出占位 */
+}
